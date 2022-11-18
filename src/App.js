@@ -2,6 +2,16 @@ import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from "react"
 import Header from "./components/Header"
+import styled from "styled-components"
+
+const ContentContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+`
 
 function App() {
   const [movie, setMovie] = useState('')
@@ -60,17 +70,23 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div>
       <Header />
       {/* <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
         value={movie} /> */}
-      <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
-        value={movie} />
-      <Button variant="contained" onClick={getMovie}>Search</Button>
-      {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
-      <p>{movieTitle}</p>
-      <p>{movieYear}</p>
-      <img src={movieThumbnail} />
+      <ContentContainer>
+        <div>
+          <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
+            value={movie} />
+          <Button variant="contained" onClick={getMovie}>Search</Button>
+        </div>
+        {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
+        <div>
+          <p>{movieTitle}</p>
+          <p>{movieYear}</p>
+          <img src={movieThumbnail} />
+        </div>
+      </ContentContainer>
     </div>
   );
 }

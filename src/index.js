@@ -7,7 +7,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: gray;
+    background-color: #f8f9fa;
     margin: 0;
   }
 `;
