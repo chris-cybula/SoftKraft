@@ -1,6 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from "react"
+import Header from "./components/Header"
 
 function App() {
   const [movie, setMovie] = useState('')
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>SoftKraft</p>
+      <Header />
       {/* <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
         value={movie} /> */}
       <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
