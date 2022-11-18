@@ -18,23 +18,25 @@ function App() {
   const getMovie = async () => {
     const apikey = 'tt3896198&apikey=98f4ba6b'
 
-    try {
-      const res = await axios.get(
-        `https://www.omdbapi.com/?i=${apikey}&t=${movie}`
-      );
+    if (movie !== "") {
+      try {
+        const res = await axios.get(
+          `https://www.omdbapi.com/?i=${apikey}&t=${movie}`
+        );
 
-      setMovieTitle(res.data['Title'])
-      setMovieYear(res.data['Year'])
-      setMovieThumbnail(res.data['Poster'])
+        setMovieTitle(res.data['Title'])
+        setMovieYear(res.data['Year'])
+        setMovieThumbnail(res.data['Poster'])
 
-      // if(res.data['Response'] === 'False') {
-      //   setErrorState(false)
-      // } else {
-      //   setErrorState(true)
-      // }
+        // if(res.data['Response'] === 'False') {
+        //   setErrorState(false)
+        // } else {
+        //   setErrorState(true)
+        // }
 
-    } catch (err) {
-      console.log(err)
+      } catch (err) {
+        console.log(err)
+      }
     }
   };
 
@@ -62,7 +64,7 @@ function App() {
       {/* <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
         value={movie} /> */}
       <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
-      value={movie} />
+        value={movie} />
       <Button variant="contained" onClick={getMovie}>Search</Button>
       {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
       <p>{movieTitle}</p>
