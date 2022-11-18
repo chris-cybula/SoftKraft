@@ -4,12 +4,22 @@ import { useState, useEffect } from "react"
 import Header from "./components/Header"
 import styled from "styled-components"
 
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
 const ContentContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 4rem;
+`
+
+const MovieInfo = styled.div`
   margin-top: 4rem;
 `
 
@@ -81,11 +91,29 @@ function App() {
           <Button variant="contained" onClick={getMovie}>Search</Button>
         </div>
         {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
-        <div>
-          <p>{movieTitle}</p>
-          <p>{movieYear}</p>
-          <img src={movieThumbnail} />
-        </div>
+        <MovieInfo>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image={movieThumbnail}
+              alt=""
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Lizard
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Lizards are a widespread group of squamate reptiles, with over 6,000
+                species, ranging across all continents except Antarctica
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Share</Button>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        </MovieInfo>
       </ContentContainer>
     </div>
   );
