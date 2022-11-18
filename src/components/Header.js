@@ -6,7 +6,9 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   background-color: #0d2d6f;
+  align-items: center;
   color: white;
+  height: 96px;
 `
 
 function Header() {
