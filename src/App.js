@@ -10,7 +10,7 @@ function App() {
 
     try {
       const res = await axios.get(
-        `https://www.omdbapi.com/?i=${apikey}`
+        `https://www.omdbapi.com/?i=${apikey}&t=${movie}`
       );
 
       console.log(res)
@@ -23,14 +23,14 @@ function App() {
   const inputHandler = event => {
     setMovie(event.target.value);
     console.log(movie)
- };
+  };
 
   return (
     <div className="App">
       <p>SoftKraft</p>
       <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
         value={movie} />
-      <Button variant="contained">Search</Button>
+      <Button variant="contained" onClick={getMovie}>Search</Button>
     </div>
   );
 }
