@@ -1,3 +1,4 @@
+import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useEffect } from "react"
 
@@ -8,9 +9,11 @@ function App() {
   })
 
   const getMovies = async () => {
+    const apikey = 'tt3896198&apikey=98f4ba6b'
+    
     try {
       const res = await axios.get(
-        `https://www.omdbapi.com/?i=tt3896198&apikey=98f4ba6b`
+        `https://www.omdbapi.com/?i=${apikey}`
       );
 
       console.log(res)
@@ -23,6 +26,8 @@ function App() {
   return (
     <div className="App">
       <p>SoftKraft</p>
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <Button variant="contained">Search</Button>
     </div>
   );
 }
