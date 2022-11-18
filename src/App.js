@@ -5,6 +5,10 @@ import { useState } from "react"
 function App() {
   const [movie, setMovie] = useState('')
 
+  const [movieTitle, setMovieTitle] = useState('')
+  const [movieYear, setMovieYear] = useState('')
+  const [movieThumbnail, setMovieThumbnail] = useState('')
+
   const getMovie = async () => {
     const apikey = 'tt3896198&apikey=98f4ba6b'
 
@@ -13,7 +17,11 @@ function App() {
         `https://www.omdbapi.com/?i=${apikey}&t=${movie}`
       );
 
-      console.log(res)
+      setMovieTitle(res.data['Title'])
+      setMovieYear(res.data['Year'])
+      setMovieThumbnail(res.data['Poster'])
+
+      console.log(movieTitle, movieYear, movieThumbnail)
 
     } catch (err) {
       console.log(err);
@@ -22,7 +30,6 @@ function App() {
 
   const inputHandler = event => {
     setMovie(event.target.value);
-    console.log(movie)
   };
 
   return (
@@ -31,6 +38,9 @@ function App() {
       <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
         value={movie} />
       <Button variant="contained" onClick={getMovie}>Search</Button>
+      <p>{movieTitle}</p>
+      <p>{movieYear}</p>
+      <img src={movieThumbnail} />
     </div>
   );
 }
