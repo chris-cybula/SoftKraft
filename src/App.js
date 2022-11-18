@@ -9,7 +9,7 @@ function App() {
   const [movieYear, setMovieYear] = useState('')
   const [movieThumbnail, setMovieThumbnail] = useState('')
 
-  const [errorState, setErrorState] = useState(false)
+  // const [errorState, setErrorState] = useState(false)
 
   // useEffect(() => {
   //   getMovie()
@@ -27,11 +27,11 @@ function App() {
       setMovieYear(res.data['Year'])
       setMovieThumbnail(res.data['Poster'])
 
-      if(res.data['Response'] === 'False') {
-        setErrorState(false)
-      } else {
-        setErrorState(true)
-      }
+      // if(res.data['Response'] === 'False') {
+      //   setErrorState(false)
+      // } else {
+      //   setErrorState(true)
+      // }
 
     } catch (err) {
       console.log(err)
@@ -59,8 +59,10 @@ function App() {
   return (
     <div className="App">
       <p>SoftKraft</p>
-      <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
-        value={movie} />
+      {/* <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
+        value={movie} /> */}
+      <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
+      value={movie} />
       <Button variant="contained" onClick={getMovie}>Search</Button>
       {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
       <p>{movieTitle}</p>
