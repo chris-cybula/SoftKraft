@@ -25,7 +25,22 @@ const MovieInfo = styled.div`
 `
 
 const Input = styled.div`
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
+
+const SearchButton = styled(Button)`
+ &.searchButton {
+  background-image: linear-gradient(90deg,#288cbb,#74e2c5);
+  height: 37px;
+
+    &:hover {
+      background-image: linear-gradient(90deg,#288cbb,#74e2c5);
+    }
+  }
+`;
 
 function App() {
   const [movie, setMovie] = useState('')
@@ -98,13 +113,13 @@ function App() {
         <Input>
           <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
             value={movie} />
-          <Button variant="contained" onClick={getMovie}>Search</Button>
+          <SearchButton variant="contained" onClick={getMovie} className={'searchButton'}>Search</SearchButton>
         </Input>
         {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
 
 
 
-        {movieTitle != '' && movieYear != '' && movieThumbnail != ''
+        {movieTitle !== '' && movieYear !== '' && movieThumbnail !== ''
           ? <MovieInfo>
             <Card>
               <CardMedia
@@ -123,7 +138,7 @@ function App() {
               </CardContent>
             </Card>
           </MovieInfo>
-          : <p>no movie</p>
+          : null
         }
 
 
