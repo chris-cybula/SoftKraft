@@ -1,11 +1,9 @@
 import { Button, TextField } from '@mui/material';
 import axios from 'axios';
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Header from "./components/Header"
 import styled from "styled-components"
-
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -49,6 +47,7 @@ const SearchButton = styled(Button)`
     }
   }
 `
+
 const TextFieldInput = styled(TextField)`
   &.error {
     label {
@@ -80,16 +79,10 @@ const Message = styled.span`
 
 function App() {
   const [movie, setMovie] = useState('')
-
   const [movieTitle, setMovieTitle] = useState('')
   const [movieYear, setMovieYear] = useState('')
   const [movieThumbnail, setMovieThumbnail] = useState('')
-
   const [errorState, setErrorState] = useState(false)
-
-  // useEffect(() => {
-  //   getMovie()
-  // }, [movie])
 
   const getMovie = async () => {
     const apikey = 'tt3896198&apikey=98f4ba6b'
@@ -99,12 +92,6 @@ function App() {
         const res = await axios.get(
           `https://www.omdbapi.com/?i=${apikey}&t=${movie}`
         );
-
-        // if(res.data['Response'] === 'False') {
-        //   setErrorState(false)
-        // } else {
-        //   setErrorState(true)
-        // }
 
         if (res.data['Response'] !== 'False') {
           setMovieTitle(res.data['Title'])
@@ -118,8 +105,6 @@ function App() {
           setErrorState(true)
         }
 
-        console.log(res.data)
-
       } catch (err) {
         console.log(err)
       }
@@ -127,20 +112,6 @@ function App() {
       setErrorState(true)
     }
   };
-
-  // const getRandomMovie = async () => {
-
-  //   try {
-  //     const res = await axios.get(
-  //       `https://k2maan-moviehut.herokuapp.com/api/random`
-  //     );
-
-  //     setMovie(res.data.name)
-
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const inputHandler = event => {
     setMovie(event.target.value);
@@ -155,9 +126,6 @@ function App() {
             value={movie} />
           <SearchButton variant="contained" onClick={getMovie} className={'searchButton'}>Search</SearchButton>
         </Input>
-        {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
-
-
 
         {movieTitle !== '' && movieYear !== '' && movieThumbnail !== ''
           ? <MovieInfo>
