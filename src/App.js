@@ -44,7 +44,11 @@ const SearchButton = styled(Button)`
 const TextFieldInput = styled(TextField)`
   &.error {
     label {
-      color: red;
+      color: #d32f2f;
+    }
+
+    fieldset {
+      border-color: #d32f2f;
     }
   }
 `
