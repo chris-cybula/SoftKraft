@@ -40,7 +40,7 @@ const SearchButton = styled(Button)`
       background-image: linear-gradient(90deg,#288cbb,#74e2c5);
     }
   }
-`;
+`
 
 function App() {
   const [movie, setMovie] = useState('')
@@ -49,7 +49,7 @@ function App() {
   const [movieYear, setMovieYear] = useState('')
   const [movieThumbnail, setMovieThumbnail] = useState('')
 
-  // const [errorState, setErrorState] = useState(false)
+  const [errorState, setErrorState] = useState(false)
 
   // useEffect(() => {
   //   getMovie()
@@ -74,15 +74,21 @@ function App() {
           setMovieTitle(res.data['Title'])
           setMovieYear(res.data['Year'])
           setMovieThumbnail(res.data['Poster'])
+          setErrorState(false)
         } else {
           setMovieTitle('')
           setMovieYear('')
           setMovieThumbnail('')
+          setErrorState(true)
         }
+
+        console.log(res.data)
 
       } catch (err) {
         console.log(err)
       }
+    } else {
+      setErrorState(true)
     }
   };
 
@@ -107,8 +113,6 @@ function App() {
   return (
     <div>
       <Header />
-      {/* <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
-        value={movie} /> */}
       <ContentContainer>
         <Input>
           <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
