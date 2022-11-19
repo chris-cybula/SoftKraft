@@ -156,8 +156,15 @@ function App() {
           : null
         }
 
+        {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
+          ? <p>error</p>
+          : null
+        }
 
-
+        {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === false
+          ? <p>first msg</p>
+          : null
+        }
 
       </ContentContainer>
     </div>
