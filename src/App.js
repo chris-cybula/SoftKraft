@@ -20,7 +20,11 @@ const ContentContainer = styled.div`
 `
 
 const MovieInfo = styled.div`
-  margin-top: 4rem;
+  margin: 4rem 0;
+  width: 300px;
+`
+
+const Input = styled.div`
 `
 
 function App() {
@@ -85,33 +89,28 @@ function App() {
       {/* <TextField error={errorState === true ? "" : "false"} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
         value={movie} /> */}
       <ContentContainer>
-        <div>
+        <Input>
           <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
             value={movie} />
           <Button variant="contained" onClick={getMovie}>Search</Button>
-        </div>
+        </Input>
         {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
         <MovieInfo>
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
-              height="140"
+              height=""
               image={movieThumbnail}
               alt=""
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Lizard
+                {movieTitle}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000
-                species, ranging across all continents except Antarctica
+                {movieYear}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
           </Card>
         </MovieInfo>
       </ContentContainer>
