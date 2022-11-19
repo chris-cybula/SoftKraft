@@ -41,6 +41,13 @@ const SearchButton = styled(Button)`
     }
   }
 `
+const TextFieldInput = styled(TextField)`
+  &.error {
+    label {
+      color: red;
+    }
+  }
+`
 
 function App() {
   const [movie, setMovie] = useState('')
@@ -115,7 +122,7 @@ function App() {
       <Header />
       <ContentContainer>
         <Input>
-          <TextField id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
+          <TextFieldInput className={errorState === true ? 'error' : ''} id="outlined-basic" label="Your movie..." variant="outlined" onChange={inputHandler}
             value={movie} />
           <SearchButton variant="contained" onClick={getMovie} className={'searchButton'}>Search</SearchButton>
         </Input>
