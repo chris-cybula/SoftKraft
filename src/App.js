@@ -7,6 +7,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Messages from './components/Messages';
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -57,23 +58,6 @@ const TextFieldInput = styled(TextField)`
     fieldset {
       border-color: #d32f2f;
     }
-  }
-`
-
-const Message = styled.span`
-  font-size: 40px;
-  font-weight: 300;
-  margin: 8rem 10px 0 10px;
-
-  span {
-    font-weight: bold;
-    color: #7ae8c5;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 30px;
-    margin-top: 4rem;
-    max-width: 300px;
   }
 `
 
@@ -149,16 +133,7 @@ function App() {
           : null
         }
 
-        {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
-          ? <Message>Please enter correct title of the <span>movie</span></Message>
-          : null
-        }
-
-        {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === false
-          ? <Message>Please enter <span>movie</span> you are looking for</Message>
-          : null
-        }
-
+        <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState}/>
       </ContentContainer>
     </div>
   );
