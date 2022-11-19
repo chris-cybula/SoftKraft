@@ -53,6 +53,16 @@ const TextFieldInput = styled(TextField)`
   }
 `
 
+const Message = styled.span`
+  font-size: 40px;
+  margin-top: 8rem;
+
+  span {
+    font-weight: bold;
+    color: #7ae8c5;
+  }
+`
+
 function App() {
   const [movie, setMovie] = useState('')
 
@@ -157,12 +167,12 @@ function App() {
         }
 
         {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
-          ? <p>error</p>
+          ? <Message>Please enter correct title of the <span>movie</span></Message>
           : null
         }
 
         {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === false
-          ? <p>first msg</p>
+          ? <Message>Please enter <span>movie</span> you are looking for</Message>
           : null
         }
 

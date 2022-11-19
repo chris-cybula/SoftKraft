@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #f8f9fa;
     margin: 0;
     font-family: 'Lato', sans-serif;
+    color: #444;
   }
 `;
 
