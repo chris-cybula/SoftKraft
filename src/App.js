@@ -49,15 +49,21 @@ function App() {
           `https://www.omdbapi.com/?i=${apikey}&t=${movie}`
         );
 
-        setMovieTitle(res.data['Title'])
-        setMovieYear(res.data['Year'])
-        setMovieThumbnail(res.data['Poster'])
-
         // if(res.data['Response'] === 'False') {
         //   setErrorState(false)
         // } else {
         //   setErrorState(true)
         // }
+
+        if (res.data['Response'] !== 'False') {
+          setMovieTitle(res.data['Title'])
+          setMovieYear(res.data['Year'])
+          setMovieThumbnail(res.data['Poster'])
+        } else {
+          setMovieTitle('')
+          setMovieYear('')
+          setMovieThumbnail('')
+        }
 
       } catch (err) {
         console.log(err)
@@ -95,24 +101,34 @@ function App() {
           <Button variant="contained" onClick={getMovie}>Search</Button>
         </Input>
         {/* <Button variant="contained" onClick={getRandomMovie}>Random</Button> */}
-        <MovieInfo>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height=""
-              image={movieThumbnail}
-              alt=""
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {movieTitle}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {movieYear}
-              </Typography>
-            </CardContent>
-          </Card>
-        </MovieInfo>
+
+
+
+        {movieTitle != '' && movieYear != '' && movieThumbnail != ''
+          ? <MovieInfo>
+            <Card>
+              <CardMedia
+                component="img"
+                height=""
+                image={movieThumbnail}
+                alt=""
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {movieTitle}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {movieYear}
+                </Typography>
+              </CardContent>
+            </Card>
+          </MovieInfo>
+          : <p>no movie</p>
+        }
+
+
+
+
       </ContentContainer>
     </div>
   );
