@@ -56,6 +56,7 @@ const TextFieldInput = styled(TextField)`
 const Message = styled.span`
   font-size: 40px;
   margin-top: 8rem;
+  font-weight: 300;
 
   span {
     font-weight: bold;
