@@ -9,6 +9,12 @@ const HeaderContainer = styled.div`
   align-items: center;
   color: white;
   height: 96px;
+
+  @media (max-width: 768px) {
+    svg {
+        width: 200px;
+    }
+  }
 `
 
 function Header() {

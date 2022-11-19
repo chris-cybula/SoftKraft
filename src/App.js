@@ -17,11 +17,19 @@ const ContentContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 4rem;
+
+  @media (max-width: 768px) {
+    margin: 2rem 0;
+  }
 `
 
 const MovieInfo = styled.div`
   margin: 4rem 0;
   width: 300px;
+
+  @media (max-width: 768px) {
+    margin: 2rem 0;
+  }
 `
 
 const Input = styled.div`
@@ -55,12 +63,18 @@ const TextFieldInput = styled(TextField)`
 
 const Message = styled.span`
   font-size: 40px;
-  margin-top: 8rem;
   font-weight: 300;
+  margin: 8rem 10px 0 10px;
 
   span {
     font-weight: bold;
     color: #7ae8c5;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+    margin-top: 4rem;
+    max-width: 300px;
   }
 `
 
