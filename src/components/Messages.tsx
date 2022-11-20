@@ -18,7 +18,14 @@ const Message = styled.span`
   }
 `
 
-function Messages({movieTitle, movieYear, movieThumbnail, errorState}) {
+interface Props {
+  movieTitle: string;
+  movieYear: string;
+  movieThumbnail: string;
+  errorState: boolean;
+}
+
+function Messages({movieTitle, movieYear, movieThumbnail, errorState}:Props) {
 
   return (
     <Fragment>
