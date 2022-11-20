@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, Fragment } from "react"
 import Header from "./components/Header"
 import Messages from './components/Messages';
 import MovieInfo from './components/MovieInfo';
@@ -17,6 +17,7 @@ const ContentContainer = styled.div`
     margin: 2rem 0;
   }
 `
+
 function App() {
   const [movieTitle, setMovieTitle] = useState('')
   const [movieYear, setMovieYear] = useState('')
@@ -24,14 +25,14 @@ function App() {
   const [errorState, setErrorState] = useState(false)
 
   return (
-    <div>
+    <Fragment>
       <Header />
       <ContentContainer>
         <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} setErrorState={setErrorState} errorState={errorState}/>
         <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
         <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
       </ContentContainer>
-    </div>
+    </Fragment>
   );
 }
 
