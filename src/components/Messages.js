@@ -18,16 +18,16 @@ const Message = styled.span`
   }
 `
 
-function Messages(props) {
+function Messages({movieTitle, movieYear, movieThumbnail, errorState}) {
 
   return (
     <Fragment>
-      {props.movieTitle === '' && props.movieYear === '' && props.movieThumbnail === '' && props.errorState === true
+      {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
         ? <Message>Please enter correct title of the <span>movie</span></Message>
         : null
       }
 
-      {props.movieTitle === '' && props.movieYear === '' && props.movieThumbnail === '' && props.errorState === false
+      {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === false
         ? <Message>Please enter <span>movie</span> you are looking for</Message>
         : null
       }

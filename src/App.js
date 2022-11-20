@@ -5,7 +5,6 @@ import MovieInfo from './components/MovieInfo';
 import MovieInput from './components/MovieInput';
 import styled from "styled-components"
 
-
 const ContentContainer = styled.div`
   width: 100%;
   display: flex;

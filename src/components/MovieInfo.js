@@ -14,25 +14,25 @@ const MovieInfo = styled.div`
   }
 `
 
-function Messages(props) {
+function Messages({movieTitle, movieYear, movieThumbnail, errorState}) {
 
   return (
     <Fragment>
-      {props.movieTitle !== '' && props.movieYear !== '' && props.movieThumbnail !== '' && props.errorState === false
+      {movieTitle !== '' && movieYear !== '' && movieThumbnail !== '' && errorState === false
         ? <MovieInfo>
           <Card>
             <CardMedia
               component="img"
               height=""
-              image={props.movieThumbnail}
+              image={movieThumbnail}
               alt=""
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {props.movieTitle}
+                {movieTitle}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {props.movieYear}
+                {movieYear}
               </Typography>
             </CardContent>
           </Card>
