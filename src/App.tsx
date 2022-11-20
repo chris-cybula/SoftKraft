@@ -23,14 +23,14 @@ const ContentContainer = styled.div`
 
 function App() {
   interface State {
-    details?: string;
-    error?: boolean;
+    details: string;
+    error: boolean;
   }
 
-  const [movieTitle, setMovieTitle] = useState<State>({ details: ''});
-  const [movieYear, setMovieYear] = useState<State>({ details: ''});
-  const [movieThumbnail, setMovieThumbnail] = useState<State>({ details: ''});
-  const [errorState, setErrorState] = useState<State>({ error: false});
+  const [movieTitle, setMovieTitle] = useState<State['details']>('');
+  const [movieYear, setMovieYear] = useState<State['details']>('');
+  const [movieThumbnail, setMovieThumbnail] = useState<State['details']>('');
+  const [errorState, setErrorState] = useState<State['error']>(false)
 
   return (
     <>

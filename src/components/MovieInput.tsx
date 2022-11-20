@@ -77,7 +77,7 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
     }
   };
 
-  const inputHandler = (event : React.ChangeEvent<HTMLInputElement>) => {
+  const inputHandler = (event) => {
     setMovie(event.target.value);
   };
 
