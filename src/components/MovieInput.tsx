@@ -33,8 +33,20 @@ const TextFieldInput = styled(TextField)`
   }
 `
 
-function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState, setErrorState}) {
-  const [movie, setMovie] = useState('')
+interface Props {
+  setMovieTitle: React.Dispatch<React.SetStateAction<string>>;
+  setMovieYear: React.Dispatch<React.SetStateAction<string>>;
+  setMovieThumbnail: React.Dispatch<React.SetStateAction<string>>;
+  errorState: boolean;
+  setErrorState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState, setErrorState}: Props) {
+  interface State {
+    inputValue: string;
+  }
+
+  const [movie, setMovie] = useState<State | ''>({ inputValue: ''});
 
   const getMovie  = async () => {
     const apikey = 'tt3896198&apikey=98f4ba6b'
@@ -65,7 +77,7 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
     }
   };
 
-  const inputHandler = event => {
+  const inputHandler = (event : React.ChangeEvent<HTMLInputElement>) => {
     setMovie(event.target.value);
   };
 

@@ -4,7 +4,8 @@ import Header from "./components/Header"
 import Messages from './components/Messages.tsx';
 // @ts-ignore
 import MovieInfo from './components/MovieInfoCard.tsx';
-import MovieInput from './components/MovieInput';
+// @ts-ignore
+import MovieInput from './components/MovieInput.tsx';
 import styled from "styled-components"
 
 const ContentContainer = styled.div`
@@ -35,7 +36,7 @@ function App() {
     <>
       <Header />
       <ContentContainer>
-        <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} setErrorState={setErrorState} errorState={errorState}/>
+        <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} errorState={errorState} setErrorState={setErrorState}/>
         <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
         <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
       </ContentContainer>
