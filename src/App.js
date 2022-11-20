@@ -2,12 +2,10 @@ import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import { useState } from "react"
 import Header from "./components/Header"
-import styled from "styled-components"
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import Messages from './components/Messages';
+import MovieInfo from './components/MovieInfo';
+import styled from "styled-components"
+
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -16,15 +14,6 @@ const ContentContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 4rem;
-
-  @media (max-width: 768px) {
-    margin: 2rem 0;
-  }
-`
-
-const MovieInfo = styled.div`
-  margin: 4rem 0;
-  width: 300px;
 
   @media (max-width: 768px) {
     margin: 2rem 0;
@@ -111,29 +100,9 @@ function App() {
           <SearchButton variant="contained" onClick={getMovie} className={'searchButton'}>Search</SearchButton>
         </Input>
 
-        {movieTitle !== '' && movieYear !== '' && movieThumbnail !== ''
-          ? <MovieInfo>
-            <Card>
-              <CardMedia
-                component="img"
-                height=""
-                image={movieThumbnail}
-                alt=""
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {movieTitle}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {movieYear}
-                </Typography>
-              </CardContent>
-            </Card>
-          </MovieInfo>
-          : null
-        }
-
-        <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState}/>
+        
+        <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
+        <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
       </ContentContainer>
     </div>
   );
