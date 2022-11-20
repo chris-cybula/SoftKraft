@@ -2,7 +2,8 @@ import { useState, Fragment } from "react"
 import Header from "./components/Header"
 // @ts-ignore
 import Messages from './components/Messages.tsx';
-import MovieInfo from './components/MovieInfo';
+// @ts-ignore
+import MovieInfo from './components/MovieInfoCard.tsx';
 import MovieInput from './components/MovieInput';
 import styled from "styled-components"
 

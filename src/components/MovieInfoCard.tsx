@@ -13,8 +13,14 @@ const MovieInfo = styled.div`
     margin: 2rem 0;
   }
 `
+interface Props {
+  movieTitle: string;
+  movieYear: string;
+  movieThumbnail: string;
+  errorState: boolean;
+}
 
-function Messages({movieTitle, movieYear, movieThumbnail, errorState}) {
+function MovieInfoCard({movieTitle, movieYear, movieThumbnail, errorState}:Props) {
 
   return (
     <Fragment>
@@ -43,4 +49,4 @@ function Messages({movieTitle, movieYear, movieThumbnail, errorState}) {
   );
 }
 
-export default Messages;
+export default MovieInfoCard;
