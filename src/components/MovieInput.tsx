@@ -46,7 +46,7 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
     inputValue: string;
   }
 
-  const [movie, setMovie] = useState<State | ''>({ inputValue: ''});
+  const [movie, setMovie] = useState<State['inputValue']>('');
 
   const getMovie  = async () => {
     const apikey = 'tt3896198&apikey=98f4ba6b'
