@@ -19,20 +19,25 @@ const ContentContainer = styled.div`
 `
 
 function App() {
-  const [movieTitle, setMovieTitle] = useState('')
-  const [movieYear, setMovieYear] = useState('')
-  const [movieThumbnail, setMovieThumbnail] = useState('')
-  const [errorState, setErrorState] = useState(false)
+  interface State {
+    details?: string;
+    error?: boolean;
+  }
+
+  const [movieTitle, setMovieTitle] = useState<State>({ details: ''});
+  const [movieYear, setMovieYear] = useState<State>({ details: ''});
+  const [movieThumbnail, setMovieThumbnail] = useState<State>({ details: ''});
+  const [errorState, setErrorState] = useState<State>({ error: false});
 
   return (
-    <Fragment>
+    <>
       <Header />
       <ContentContainer>
         <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} setErrorState={setErrorState} errorState={errorState}/>
         <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
         <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
       </ContentContainer>
-    </Fragment>
+    </>
   );
 }
 
