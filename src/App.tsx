@@ -22,7 +22,7 @@ const ContentContainer = styled.div`
   }
 `
 
-function App() {
+function App(): JSX.Element {
   interface State {
     details: string;
     error: boolean;
@@ -31,13 +31,13 @@ function App() {
   const [movieTitle, setMovieTitle] = useState<State['details']>('');
   const [movieYear, setMovieYear] = useState<State['details']>('');
   const [movieThumbnail, setMovieThumbnail] = useState<State['details']>('');
-  const [errorState, setErrorState] = useState<State['error']>(false)
+  const [errorState, setErrorState] = useState<State['error']>(false);
 
   return (
     <>
       <Header />
       <ContentContainer>
-        <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} errorState={errorState} setErrorState={setErrorState}/>
+        <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} errorState={errorState} setErrorState={setErrorState} />
         <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
         <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
       </ContentContainer>

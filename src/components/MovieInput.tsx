@@ -48,8 +48,8 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
 
   const [movie, setMovie] = useState<State['inputValue']>('');
 
-  const getMovie = async () => {
-    const apikey = 'tt3896198&apikey=98f4ba6b'
+  async function getMovie(): Promise<void> {
+    const apikey = 'tt3896198&apikey=98f4ba6b';
 
     if (movie !== "") {
       try {
@@ -58,24 +58,24 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
         );
 
         if (res.data['Response'] !== 'False') {
-          setMovieTitle(res.data['Title'])
-          setMovieYear(res.data['Year'])
-          setMovieThumbnail(res.data['Poster'])
-          setErrorState(false)
+          setMovieTitle(res.data['Title']);
+          setMovieYear(res.data['Year']);
+          setMovieThumbnail(res.data['Poster']);
+          setErrorState(false);
         } else {
-          setMovieTitle('')
-          setMovieYear('')
-          setMovieThumbnail('')
-          setErrorState(true)
+          setMovieTitle('');
+          setMovieYear('');
+          setMovieThumbnail('');
+          setErrorState(true);
         }
 
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     } else {
-      setErrorState(true)
+      setErrorState(true);
     }
-  };
+  }
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMovie(e.target.value);
