@@ -21,7 +21,6 @@ interface Props {
 }
 
 function MovieInfoCard({movieTitle, movieYear, movieThumbnail, errorState}:Props) {
-
   return (
     <Fragment>
       {movieTitle !== '' && movieYear !== '' && movieThumbnail !== '' && errorState === false

@@ -48,7 +48,7 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
 
   const [movie, setMovie] = useState<State['inputValue']>('');
 
-  const getMovie  = async () => {
+  const getMovie = async () => {
     const apikey = 'tt3896198&apikey=98f4ba6b'
 
     if (movie !== "") {
@@ -77,8 +77,8 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
     }
   };
 
-  const inputHandler = (event) => {
-    setMovie(event.target.value);
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMovie(e.target.value);
   };
 
   return (

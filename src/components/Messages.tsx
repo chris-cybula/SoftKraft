@@ -18,26 +18,8 @@ const Message = styled.span`
   }
 `
 
-// interface Props {
-//   movieTitle: string;
-//   movieYear: string;
-//   movieThumbnail: string ;
-//   errorState: boolean ;
-// }
-
 function Messages({movieTitle, movieYear, movieThumbnail, errorState}): JSX.Element {
-  console.log('1', movieTitle['details'])
-  console.log('2', movieYear['details'])
-  console.log('3', movieThumbnail['details'])
-  console.log('4', errorState['error'])
-
-  console.log('1!', movieTitle)
-  console.log('2!', movieYear)
-  console.log('3!', movieThumbnail)
-  console.log('4!', errorState)
-
   return (
-
     <Fragment>
       {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
         ? <Message>Please enter correct title of the <span>movie</span></Message>
