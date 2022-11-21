@@ -1,5 +1,6 @@
-import { useState, Fragment } from "react"
-import Header from "./components/Header"
+import { useState } from "react"
+// @ts-ignore
+import Header from "./components/Header.tsx"
 // @ts-ignore
 import Messages from './components/Messages.tsx';
 // @ts-ignore

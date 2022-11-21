@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Fragment } from "react"
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -20,9 +19,9 @@ interface Props {
   errorState: boolean;
 }
 
-function MovieInfoCard({movieTitle, movieYear, movieThumbnail, errorState}:Props) {
+function MovieInfoCard({movieTitle, movieYear, movieThumbnail, errorState}:Props): JSX.Element {
   return (
-    <Fragment>
+    <>
       {movieTitle !== '' && movieYear !== '' && movieThumbnail !== '' && errorState === false
         ? <MovieInfo>
           <Card>
@@ -44,7 +43,7 @@ function MovieInfoCard({movieTitle, movieYear, movieThumbnail, errorState}:Props
         </MovieInfo>
         : null
       }
-    </Fragment>
+    </>
   );
 }
 

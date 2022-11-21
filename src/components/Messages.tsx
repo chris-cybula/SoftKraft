@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Fragment } from "react"
 
 const Message = styled.span`
   font-size: 40px;
@@ -20,7 +19,7 @@ const Message = styled.span`
 
 function Messages({movieTitle, movieYear, movieThumbnail, errorState}): JSX.Element {
   return (
-    <Fragment>
+    <>
       {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
         ? <Message>Please enter correct title of the <span>movie</span></Message>
         : null
@@ -30,7 +29,7 @@ function Messages({movieTitle, movieYear, movieThumbnail, errorState}): JSX.Elem
         ? <Message>Please enter <span>movie</span> you are looking for</Message>
         : null
       }
-    </Fragment>
+    </>
   );
 }
 

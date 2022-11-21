@@ -41,7 +41,7 @@ interface Props {
   setErrorState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState, setErrorState}: Props) {
+function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState, setErrorState}: Props): JSX.Element {
   interface State {
     inputValue: string;
   }
