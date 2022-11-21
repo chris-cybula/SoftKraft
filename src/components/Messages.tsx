@@ -16,8 +16,14 @@ const Message = styled.span`
     max-width: 300px;
   }
 `
+interface Props {
+  movieTitle: string;
+  movieYear: string;
+  movieThumbnail: string;
+  errorState: boolean;
+}
 
-function Messages({movieTitle, movieYear, movieThumbnail, errorState}): JSX.Element {
+function Messages({movieTitle, movieYear, movieThumbnail, errorState}:Props): JSX.Element {
   return (
     <>
       {movieTitle === '' && movieYear === '' && movieThumbnail === '' && errorState === true
