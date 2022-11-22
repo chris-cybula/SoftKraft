@@ -62,6 +62,7 @@ function MovieInput({setMovieTitle, setMovieYear, setMovieThumbnail, errorState,
           setMovieYear(res.data['Year']);
           setMovieThumbnail(res.data['Poster']);
           setErrorState(false);
+          setMovie('');
         } else {
           setMovieTitle('');
           setMovieYear('');
