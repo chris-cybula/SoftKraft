@@ -27,9 +27,8 @@ function MovieInfoCard({movieTitle, movieYear, movieThumbnail, errorState}:Props
           <Card>
             <CardMedia
               component="img"
-              height=""
               image={movieThumbnail}
-              alt=""
+              alt={movieTitle}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
