@@ -4,7 +4,7 @@
 
 Simple app which is made to allow you quickly find basic details about your favorite movie.
 
-[SoftKraft](https://www.chris-cybula.github.io/SoftKraft)
+[SoftKraft](chris-cybula.github.io/SoftKraft)
 
 ## Tools
 
