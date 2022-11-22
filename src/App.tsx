@@ -7,7 +7,18 @@ import Messages from './components/Messages.tsx';
 import MovieInfo from './components/MovieInfoCard.tsx';
 // @ts-ignore
 import MovieInput from './components/MovieInput.tsx';
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+    background-color: #f8f9fa;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #444;
+  }
+`;
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -35,11 +46,12 @@ function App(): JSX.Element {
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <ContentContainer>
         <MovieInput setMovieTitle={setMovieTitle} setMovieYear={setMovieYear} setMovieThumbnail={setMovieThumbnail} errorState={errorState} setErrorState={setErrorState} />
-        <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
         <Messages movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
+        <MovieInfo movieTitle={movieTitle} movieYear={movieYear} movieThumbnail={movieThumbnail} errorState={errorState} />
       </ContentContainer>
     </>
   );
